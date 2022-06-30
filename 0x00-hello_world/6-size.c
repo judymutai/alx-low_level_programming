@@ -4,7 +4,7 @@
  * *main - Display memory size of variables
  * *
  * *Return: Always 0 (Success)
- * */
+ **/
 
 int main(void)
 {
