@@ -4,7 +4,7 @@
  * *main - Begin Here
  * *print 0-9 using putchar
  * *Return: Value 0 (true)
- * */
+ */
 int main(void)
 {
 		int num1 = ((char)'0');
