@@ -1,23 +1,18 @@
 #include <stdio.h>
 /**
 *main - Begin Here
-*print a-z and A-Z using putchar
+*print 0-9 using putchar
 *Return: Value 0 (true)
 **/
 int main(void)
 {
-	char ch = 'a';
-	char CH = 'A';
+	char ch = '0';
+	int i;
 
-	while (ch <= 'z')
+	for (i = 0; i < 10; i++)
 	{
 		putchar(ch);
 		ch++;
-	}
-	while (CH <= 'Z')
-	{
-		putchar(CH);
-		CH++;
 	}
 	putchar('\n');
 	return (0);
