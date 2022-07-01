@@ -1,20 +1,31 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdlo.h>
 
 /**
- * *main -> assign a random number to the variable n each time it is executed and printed out
- * *based a condition
- * *Return : always 0
- * */
+ * *main - Start here
+ * *Random generated numbers and check if positive, zero or negative.
+ * *Return: value 0 (Accept)
+ */
+
 int main(void)
 {
-	int n;
+		int n;
 
-	strand(time(0));
-	n=rand() - RAND_MAX / 2;
-	If (n > 0)
-			printf(“%d is positive”, n)
-			return (0);
+			srand(time(0));
+			n = rand() - RAND_MAX / 2;
+			if (n < 0)
+			{
+				printf("%d is negative\n", n);
+													}
+        			else if (n > 0 ) 							{
+    
+					printf("%d is positive\n", n);
+													}
+          		else
+		        {
+													printf("%d is zero\n", n);
+													}
+
+								return (0);
 }
-
