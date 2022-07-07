@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
 * print_number - Print large number character at a time
 * @n: Number to pring
