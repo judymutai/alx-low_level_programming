@@ -1,7 +1,8 @@
 #include "main.h"
+
 /**
 * print_number - Print large number character at a time
-* @n: Number to pring
+*@n: Number to print
 * Return: Void
 */
 void print_number(int n)
