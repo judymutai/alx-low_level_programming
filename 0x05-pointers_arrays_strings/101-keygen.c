@@ -10,7 +10,6 @@ int main(void)
 	int r = 0, c = 0;
 	time_t t;
 	int sum = 0;
-
 	srand((unsigned) time(&t));
 	while (c < 15)
 	{
