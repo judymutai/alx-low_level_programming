@@ -1,0 +1,1 @@
+Learning about Malloc Free. Malloc deals with memory allocation. Char are 1byte, int 4 bytes while (char) *10 means that the 1 byte of the character is multiplied by 10. For int it is the number multiplies by 4 since int occupy 4 bytes of memory space.
