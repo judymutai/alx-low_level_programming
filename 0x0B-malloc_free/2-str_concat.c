@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * str_concat - function that concatenates two strings.
+ * str_concat - function that links together a couple of strings.
  * @s1: first string
  * @s2: second string
  * Return: new memory location or null otherwise

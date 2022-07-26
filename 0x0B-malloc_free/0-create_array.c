@@ -1,6 +1,6 @@
 #include <stdlib.h>
 /**
- * *create_array - Create dynamic array and initialize with a character
+ * *create_array - dynamic array made and start with a character
  * @size: size of the array
  * @c: char to be initialized with
  * Return: pointer to array or null
