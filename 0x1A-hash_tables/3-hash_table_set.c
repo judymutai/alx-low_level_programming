@@ -1,50 +1,50 @@
 #include "hash_tables.h"
+
 /**
- * hash_table_set - Function to add an element to a hash table.
- * @ht: The hash table to be used.
- * @key:  Element key. (!= NULL)
- * @value: The value to be added. (= NULL accepted)
- * Return: 1 if it succeeded, 0 otherwise.
+ * hash_table_set - adds item in a hash table
+ * @ht: the table
+ * @key: key of the item
+ * @value: value of the item
+ * Return: 1 for success 0 for failure
  */
+
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *hn, *hn_current;
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	unsigned long int i;
+	hash_node_t *new, *tmp;
 
-	if (ht == NULL || key == NULL)
+	if (!ht || !key || !(*key))
 		return (0);
-	hn = malloc(sizeof(hash_node_t));
-	if (hn == NULL)
+	new = malloc(sizeof(*new));
+	if (!new)
 		return (0);
-	hn->key = strdup(key);
-	hn->value = strdup(value);
-	hn->next = NULL;
-	if (ht->array[index] == NULL)
-		ht->array[index] = hn;
+	new->key = strdup((char *)key);
+	new->value = strdup(value);
+	new->next = NULL;
+	i = key_index((unsigned char *)key, ht->size);
+	if (!(ht->array[i]))
+	{
+		ht->array[i] = new;
+	}
 	else
 	{
-		hn_current = ht->array[index];
-		if (strcmp(hn_current->key, key) == 0)
+		/* check for update */
+		tmp = ht->array[i];
+		while (tmp && strcmp(tmp->key, new->key) != 0)
+			tmp = tmp->next;
+		if (tmp) /* its update */
 		{
-			hn->next = hn_current->next;
-			ht->array[index] = hn;
-			free(hn_current->key);
-			free(hn_current->value);
-			free(hn_current);
+			free(tmp->value);
+			tmp->value = new->value;
+			free(new->key);
+			free(new);
 			return (1);
-		} while (hn_current->next != NULL && strcmp(hn_current->next->key, key) != 0)
-			hn_current = hn_current->next;
-		if (strcmp(hn_current->key, key) == 0)
-		{
-			hn->next = hn_current->next->next;
-			free(hn_current->next->key);
-			free(hn_current->next->value);
-			free(hn_current->next);
-			hn_current->next = hn;
-		} else
-		{
-			hn->next = ht->array[index];
-			ht->array[index] = hn;
 		}
-	} return (1);
+		/* its a collision */
+		tmp = ht->array[i];
+		new->next = tmp;
+		ht->array[i] = new;
+	}
+
+	return (1);
 }
